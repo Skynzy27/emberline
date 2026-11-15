@@ -14,6 +14,7 @@ import { createBots } from './bots.js';
 import { createCombat } from './combat.js';
 import { createRounds } from './rounds.js';
 import { createHud } from './hud.js';
+import { createMinimap } from './minimap.js';
 import { createAudio } from './audio.js';
 import { createFx } from './fx.js';
 
@@ -30,6 +31,7 @@ const map = createMap(scene);
 const fx = createFx(scene);
 const audio = createAudio();
 const hud = createHud();
+const minimap = createMinimap(document.getElementById('minimap'), map.layout, map.sites);
 const player = createPlayer(map.colliders, map.spawns.ember[1]);
 const weapons = createWeapons(camera);
 const input = createInput(renderer.domElement, onLockChange);
@@ -167,6 +169,7 @@ function syncHud() {
   hud.setMoney(state.money);
   hud.setAlive(state.player.alive ? 1 : 0, state.botsAlive);
   hud.setCrosshairSpread(weapons.spread(player.groundSpeed()) * 620);
+  minimap.update(state, player, bots.bots, state.time);
   const feedKey = state.feed.map((f) => f.text).join('|');
   if (feedKey !== lastFeedKey) {
     lastFeedKey = feedKey;

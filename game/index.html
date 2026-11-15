@@ -69,6 +69,7 @@
   #alive { position: fixed; top: 20px; left: 32px; font-family: var(--font-readout); font-size: 13px; color: var(--muted); line-height: 1.7; }
   #alive-ember { color: var(--accent); }
   #alive-warden { color: var(--cool); }
+  #minimap { position: fixed; left: 32px; top: 78px; border: 1px solid var(--hairline); border-radius: 4px; background: rgba(23,18,13,.82); pointer-events: none; }
   #bomb-text { position: fixed; top: 20px; right: 32px; font-family: var(--font-readout); font-size: 13px; color: var(--muted); text-align: right; }
   #bomb-text.urgent { color: var(--danger); }
 
@@ -122,6 +123,7 @@
   <div id="ammo"><span id="ammo-mag">12</span><span id="ammo-reserve">/ 36</span><div id="weapon-name">P-12 Sidearm</div><div id="grenades"><span id="grenade-frag">Frag 0</span><span id="grenade-flash">Flash 0</span></div></div>
   <div id="topbar"><span id="round-label">Round 1</span><span id="timer-value">0:08</span><span id="score-value">0 — 0</span><span id="money-value">$800</span></div>
   <div id="alive"><div id="alive-ember">Ember 1</div><div id="alive-warden">Wardens 4</div></div>
+  <canvas id="minimap" width="180" height="140"></canvas>
   <div id="bomb-text">Carry the charge to a site</div>
   <div id="feed"></div>
   <div id="message"></div>
